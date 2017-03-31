@@ -3,31 +3,24 @@ var select = document.getElementById('select');
 
 select.onchange = function (){
 	if (select.value == "original") {
-		removeClass();
+		classImage("original");
 	}
 	if (select.value == "blanco-negro") {
-		removeClass();
-		for (var i = 0; i < img.length; i++) {
-			img[i].classList.add("blanco-negro");
-		}
+		classImage("blanco-negro");
 	}
 	if (select.value == "invertir-colores") {
-		removeClass();
-		for (var i = 0; i < img.length; i++) {
-			img[i].classList.add("invertir-colores");
-		}
+		classImage("invertir-colores");
 	}
 	else if (select.value == "sepia"){
-		removeClass();
-		for (var i = 0; i < img.length; i++) {
-			img[i].classList.add("sepia");
-		}
+		classImage("sepia");
 	}
 }
-function removeClass(){
+function classImage(addClass){
 	for (var i = 0; i < img.length; i++) {
 			img[i].classList.remove("blanco-negro");
 			img[i].classList.remove("invertir-colores");
 			img[i].classList.remove("sepia");
+			img[i].classList.remove("original");
+			img[i].classList.add(addClass);
 		}
 }
